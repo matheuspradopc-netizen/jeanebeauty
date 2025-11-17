@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeane Beauty Clinic - Preview Conceitual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nude-light: #F8E8E0;
+            --nude-medium: #E8D5D0;
+            --rose-soft: #D4A5A0;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --text-light: #9B9B9B;
+            --bg-cream: #FDFBF9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 251, 249, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid rgba(212, 165, 160, 0.1);
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--rose-soft);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rose-soft);
+        }
+
+        .cta-button {
+            background: var(--rose-soft);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 160, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            background: linear-gradient(135deg, rgba(248, 232, 224, 0.3) 0%, rgba(212, 165, 160, 0.2) 100%);
+        }
+
+        .hero-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero h1 .highlight {
+            color: var(--rose-soft);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--rose-soft);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border: 2px solid rgba(26, 26, 26, 0.2);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(212, 165, 160, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            border-color: var(--rose-soft);
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            height: 600px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .carousel-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--nude-light), var(--rose-soft));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            opacity: 0;
+            animation: carouselFade 20s infinite;
+        }
+
+        .carousel-image:nth-child(1) { animation-delay: 0s; }
+        .carousel-image:nth-child(2) { animation-delay: 4s; }
+        .carousel-image:nth-child(3) { animation-delay: 8s; }
+        .carousel-image:nth-child(4) { animation-delay: 12s; }
+        .carousel-image:nth-child(5) { animation-delay: 16s; }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            width: 32px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .team-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .team-card {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: var(--bg-cream);
+            border-radius: 20px;
+        }
+
+        .team-card:nth-child(even) {
+            grid-template-columns: 1.5fr 1fr;
+        }
+
+        .team-card:nth-child(even) .team-image {
+            order: 2;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--nude-light), var(--rose-soft));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .team-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .team-role {
+            color: var(--rose-soft);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-bio {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .credential {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--nude-medium);
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes carouselFade {
+            0%, 100% { opacity: 0; }
+            4%, 20% { opacity: 1; }
+            24% { opacity: 0; }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .carousel {
+                height: 400px;
+            }
+
+            .team-card,
+            .team-card:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .team-card:nth-child(even) .team-image {
+                order: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo font-playfair">Jeane Beauty</div>
+            <nav>
+                <a href="#home">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#equipe">Equipe</a>
+                <a href="#resultados">Resultados</a>
+                <a href="#contato" class="cta-button">Agendar Consulta</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="badge">
+                    <span>⭐</span>
+                    <span>+15 anos de experiência</span>
+                </div>
+                <h1 class="font-playfair">
+                    Realce sua
+                    <span class="highlight">beleza natural</span>
+                </h1>
+                <p>Harmonização Facial | Bioestimuladores | Protocolos Exclusivos<br>
+                Resultados naturais com segurança e tecnologia avançada</p>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <span>🛡️</span>
+                        <span>Equipe Certificada</span>
+                    </div>
+                    <div class="feature">
+                        <span>🏆</span>
+                        <span>Protocolos Exclusivos</span>
+                    </div>
+                    <div class="feature">
+                        <span>⚕️</span>
+                        <span>Médica Prescritora</span>
+                    </div>
+                    <div class="feature">
+                        <span>✨</span>
+                        <span>Resultados Naturais</span>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a href="#" class="btn-primary">
+                        Agendar Avaliação Gratuita
+                        <span>→</span>
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        Conhecer Tratamentos
+                    </a>
+                </div>
+            </div>
+
+            <div class="carousel">
+                <div class="carousel-image">Clínica 1</div>
+                <div class="carousel-image">Clínica 2</div>
+                <div class="carousel-image">Clínica 3</div>
+                <div class="carousel-image">Clínica 4</div>
+                <div class="carousel-image">Clínica 5</div>
+                <div class="carousel-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <div class="section-title">
+                <h2 class="font-playfair">Conheça Nossa Equipe</h2>
+                <p style="color: var(--text-secondary); font-size: 1.25rem;">Profissionais especializados comprometidos com sua beleza e bem-estar</p>
+            </div>
+
+            <!-- Joyce Jeane -->
+            <div class="team-card">
+                <div class="team-image">Joyce Jeane</div>
+                <div class="team-info">
+                    <h3 class="font-playfair">Joyce Jeane</h3>
+                    <p class="team-role">Fundadora & Especialista em Estética Avançada</p>
+                    <p class="team-bio">
+                        Com mais de 15 anos de experiência em estética avançada, lidero a Jeane Beauty Clinic 
+                        com o compromisso de realçar a beleza natural de cada paciente. Nossa abordagem une 
+                        ciência, arte e cuidado personalizado para resultados que respeitam sua individualidade.
+                    </p>
+                    <div class="credentials">
+                        <span class="credential">Harmonização Facial</span>
+                        <span class="credential">Bioestimuladores</span>
+                        <span class="credential">Certificação Internacional</span>
+                        <span class="credential">15+ Anos Experiência</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dra. Flávia -->
+            <div class="team-card">
+                <div class="team-image">Dra. Flávia</div>
+                <div class="team-info">
+                    <h3 class="font-playfair">Dra. Flávia Sena</h3>
+                    <p class="team-role">Médica Endocrinologista • CRM-GO 36774</p>
+                    <p class="team-bio">
+                        Médica dedicada à saúde integrativa da mulher, atuo com excelência clínica e sensibilidade, 
+                        aliando conhecimentos em endocrinologia, ginecologia e estética. Meu foco é oferecer 
+                        tratamentos completos que promovem equilíbrio metabólico e bem-estar.
+                    </p>
+                    <div class="credentials">
+                        <span class="credential">Endocrinologia</span>
+                        <span class="credential">Ginecologia</span>
+                        <span class="credential">Estética Médica</span>
+                        <span class="credential">Emagrecimento</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vanessa -->
+            <div class="team-card">
+                <div class="team-image">Vanessa</div>
+                <div class="team-info">
+                    <h3 class="font-playfair">Vanessa Luiza</h3>
+                    <p class="team-role">Biomédica Esteta • Especialista em Estética Corporal</p>
+                    <p class="team-bio">
+                        Com mais de 10 anos de experiência na área da estética, alio técnica, empatia e 
+                        excelência científica em cada atendimento. Desenvolvi um olhar clínico preciso e 
+                        acolhedor, oferecendo tratamentos personalizados com tecnologia e segurança.
+                    </p>
+                    <div class="credentials">
+                        <span class="credential">Biomedicina Estética</span>
+                        <span class="credential">Laser Specialist</span>
+                        <span class="credential">10+ Anos Experiência</span>
+                        <span class="credential">Protocolos Corporais</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
